@@ -14,6 +14,9 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
+  gem "capybara"
+  gem "rspec-rails", ">= 2.6.1"
+  gem 'ruby-debug19', :require => 'ruby-debug'
   gem "silent-postgres", "~> 0.0.8"
 end
 
