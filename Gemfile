@@ -30,6 +30,8 @@ end
 group :development do
   gem "nifty-generators"
   gem "haml-rails"
+  gem "autotest"
+  gem "autotest-rails"
 end
 
 # Use unicorn as the web server
