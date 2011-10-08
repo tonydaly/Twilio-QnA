@@ -20,13 +20,13 @@ describe QuestionsController do
   end
 
   it "create action should render new template when model is invalid" do
-    Question.any_instance.stubs(:valid?).returns(false)
+    Question.any_instance.stub(:valid?).and_return(false)
     post :create
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
-    Question.any_instance.stubs(:valid?).returns(true)
+    Question.any_instance.stub(:valid?).and_return(true)
     post :create
     response.should redirect_to(question_url(assigns[:question]))
   end
@@ -37,13 +37,13 @@ describe QuestionsController do
   end
 
   it "update action should render edit template when model is invalid" do
-    Question.any_instance.stubs(:valid?).returns(false)
+    Question.any_instance.stub(:valid?).and_return(false)
     put :update, :id => Question.first
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
-    Question.any_instance.stubs(:valid?).returns(true)
+    Question.any_instance.stub(:valid?).and_return(true)
     put :update, :id => Question.first
     response.should redirect_to(question_url(assigns[:question]))
   end
