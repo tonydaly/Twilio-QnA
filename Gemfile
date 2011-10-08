@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem 'pg'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +25,11 @@ group :test do
   gem "factory_girl_rails"
   gem "shoulda", '>= 3.0.0.beta2'
   gem "fuubar", "~> 0.0.6"
+end
+
+group :development do
+  gem "nifty-generators"
+  gem "haml-rails"
 end
 
 # Use unicorn as the web server
