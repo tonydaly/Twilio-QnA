@@ -16,6 +16,10 @@ describe "Viewing questions" do
     page.should have_content @question
   end
 
+  it "should have a new question button" do
+    page.should have_content "New Question"
+  end
+
   it "should show all the answers for each question" do
     [@answer_a, @answer_b, @answer_c, @answer_d].each do |answer|
       page.should have_content answer
@@ -32,14 +36,11 @@ end
 describe "Adding a new question" do
   before do
     visit '/'
-  end
-
-  it "should have a new question button" do
-    page.should have_content "New Question"
+    click_link "New Question"
   end
 
   it "should allow the user to set the body" do
-    page.should have_field "body"
+    page.should have_field "Body"
   end
 
   it "should create a new question"
