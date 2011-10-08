@@ -1,0 +1,16 @@
+= form_for @answer do |f|
+  = f.error_messages
+  %p
+    = f.label :body
+    %br
+    = f.text_field :body
+  %p
+    = f.label :question_id
+    %br
+    = f.number_field :question_id
+  %p
+    = f.label :choice
+    %br
+    = f.text_field :choice
+  %p
+    = f.submit

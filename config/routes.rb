@@ -1,4 +1,6 @@
 QNA::Application.routes.draw do
+  resources :answers
+
   resources :questions
   root to: "questions#index"
 

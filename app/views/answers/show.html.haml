@@ -1,0 +1,18 @@
+- title "Answer"
+
+%p
+  %strong Body:
+  = @answer.body
+%p
+  %strong Question:
+  = @answer.question_id
+%p
+  %strong Choice:
+  = @answer.choice
+
+%p
+  = link_to "Edit", edit_answer_path(@answer)
+  |
+  = link_to "Destroy", @answer, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", answers_path

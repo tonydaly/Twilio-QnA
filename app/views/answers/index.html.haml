@@ -1,0 +1,17 @@
+- title "Answers"
+
+%table
+  %tr
+    %th Body
+    %th Question
+    %th Choice
+  - for answer in @answers
+    %tr
+      %td= answer.body
+      %td= answer.question_id
+      %td= answer.choice
+      %td= link_to 'Show', answer
+      %td= link_to 'Edit', edit_answer_path(answer)
+      %td= link_to 'Destroy', answer, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Answer", new_answer_path(answer)
