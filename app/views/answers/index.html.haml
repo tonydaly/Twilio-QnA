@@ -10,8 +10,8 @@
       %td= answer.body
       %td= answer.question_id
       %td= answer.choice
-      %td= link_to 'Show', answer
-      %td= link_to 'Edit', edit_answer_path(answer)
-      %td= link_to 'Destroy', answer, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', [@question, answer]
+      %td= link_to 'Edit', edit_question_answer_path(@question, answer)
+      %td= link_to 'Destroy', [@question, answer], :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "New Answer", new_answer_path(answer)
+%p= link_to "New Answer", new_question_answer_path(@question, answer)

@@ -3,6 +3,6 @@
 = render 'form'
 
 %p
-  = link_to "Show", @answer
+  = link_to "Show", [@question, @answer]
   |
-  = link_to "View All", answers_path
+  = link_to "View All", question_answers_path(@question)

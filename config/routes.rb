@@ -1,7 +1,8 @@
 QNA::Application.routes.draw do
-  resources :answers
-
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
+  
   root to: "questions#index"
 
   # The priority is based upon order of creation:
