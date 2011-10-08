@@ -1,0 +1,15 @@
+- title "Response"
+
+%p
+  %strong Question:
+  = @myresponse.question_id
+%p
+  %strong Answer:
+  = @myresponse.answer_id
+
+%p
+  = link_to "Edit", edit_response_path(@myresponse)
+  |
+  = link_to "Destroy", @myresponse, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", responses_path

@@ -1,0 +1,12 @@
+= form_for @myresponse do |f|
+  = f.error_messages
+  %p
+    = f.label :question_id
+    %br
+    = f.number_field :question_id
+  %p
+    = f.label :answer_id
+    %br
+    = f.number_field :answer_id
+  %p
+    = f.submit

@@ -43,3 +43,22 @@ describe "Adding a new question" do
     page.should have_field "Body"
   end
 end
+
+describe "Responses" do
+  before do
+    @question = Question.create body: "How many ounces are there in a pound"
+
+    @answer_a = Answer.create question_id: @question.to_param, body: "12"
+    @answer_b = Answer.create question_id: @question.to_param, body: "16"
+    @answer_c = Answer.create question_id: @question.to_param, body: "14"
+    @answer_d = Answer.create question_id: @question.to_param, body: "10"
+
+    @response = Response.create question: @question, answer: @answer_a
+
+    visit '/'
+  end
+
+  it "should show the number of responses" do
+    page.should have_content "1"
+  end
+end

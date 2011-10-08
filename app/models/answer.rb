@@ -1,6 +1,7 @@
 class Answer < ActiveRecord::Base
   attr_accessible :body, :question_id, :choice
 
+  has_many :responses, :dependent => :destroy
   belongs_to :question
   validates_presence_of :body, :choice
   validates_uniqueness_of :choice, :scope => :question_id

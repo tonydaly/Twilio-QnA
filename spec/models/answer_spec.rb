@@ -2,10 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Answer do
   it { should belong_to :question }
-  # it { should validate_presence_of(:body) }
-  # it { should validate_presence_of(:choice) }
-  # it { should validate_uniqueness_of(:body).scoped_to(:question) }
-  # it { should validate_uniqueness_of(:choice).scoped_to(:question) }
+  it { should have_many(:responses).dependent(:destroy) }
 
   describe "#create" do
     before do
