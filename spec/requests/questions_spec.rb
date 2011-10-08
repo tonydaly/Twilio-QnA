@@ -4,10 +4,10 @@ describe "Viewing questions" do
   before do
     @question = Question.create body: "How many ounces are there in a pound"
 
-    @answer_a = Answer.create question: @question, body: "12"
-    @answer_b = Answer.create question: @question, body: "16"
-    @answer_c = Answer.create question: @question, body: "14"
-    @answer_d = Answer.create question: @question, body: "10"
+    @answer_a = Answer.create question_id: @question.to_param, body: "12"
+    @answer_b = Answer.create question_id: @question.to_param, body: "16"
+    @answer_c = Answer.create question_id: @question.to_param, body: "14"
+    @answer_d = Answer.create question_id: @question.to_param, body: "10"
 
     visit '/'
   end

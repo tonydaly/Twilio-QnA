@@ -6,6 +6,12 @@
   - for question in @questions
     %tr
       %td= question.body
+      %td
+        %ul
+          - question.answers.each do |answer|
+            %li
+            = "#{answer.choice}: #{answer}"
+          
       %td= link_to 'Show', question
       %td= link_to 'Edit', edit_question_path(question)
       %td= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete
