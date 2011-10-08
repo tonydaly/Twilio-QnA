@@ -14,10 +14,16 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem "capybara"
   gem "rspec-rails", ">= 2.6.1"
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem "silent-postgres", "~> 0.0.8"
+end
+
+group :test do
+  gem "capybara"
+  gem "factory_girl_rails"
+  gem "shoulda", '>= 3.0.0.beta2'
+  gem "fuubar", "~> 0.0.6"
 end
 
 # Use unicorn as the web server
