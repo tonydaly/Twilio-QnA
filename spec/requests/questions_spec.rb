@@ -42,6 +42,4 @@ describe "Adding a new question" do
   it "should allow the user to set the body" do
     page.should have_field "Body"
   end
-
-  it "should create a new question"
 end
