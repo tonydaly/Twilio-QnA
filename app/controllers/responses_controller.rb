@@ -17,7 +17,7 @@ class ResponsesController < ApplicationController
     @question = Question.first  # TODO allow multiple questions
     @answer = @question.answers.find_by_choice params["Body"][0]
 
-    @myresponse = Response.new(question: @question, answer: @answer)
+    @myresponse = Response.new(question_id: @question, answer_id: @answer)
     if @myresponse.save
       flash[:notice] = "Successfully created response."
       redirect_to @myresponse
