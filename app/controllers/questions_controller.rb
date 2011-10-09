@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  respond_to :html
+
   def index
     @questions = Question.all
   end
@@ -9,6 +11,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    respond_with(@question)
   end
 
   def create
