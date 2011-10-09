@@ -18,6 +18,7 @@ class ResponsesController < ApplicationController
     return unless params["Body"]
     @question = Question.first  # TODO allow multiple questions
     @answer = @question.answers.find_by_choice params["Body"][0]
+    puts "Answer: #{@answer.id}-#{@answer.choice}"
 
     @myresponse = Response.new(question_id: @question, answer_id: @answer)
     if @myresponse.save
