@@ -1,5 +1,4 @@
 class ResponsesController < ApplicationController
-  respond_to :html, :voice
 
   def index
     @myresponses = Response.all
@@ -14,8 +13,11 @@ class ResponsesController < ApplicationController
   end
 
   def create
-    raise params.to_yaml
-    @myresponse = Response.new(params[:response])
+    return unless params["Body"]
+    @question = Question.first  # TODO allow multiple questions
+    @answer = @question.answers.find_by_choice params["Body"][0]
+
+    @myresponse = Response.new(question: @question, answer: @answer)
     if @myresponse.save
       flash[:notice] = "Successfully created response."
       redirect_to @myresponse
