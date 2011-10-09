@@ -6,9 +6,23 @@
 
 %p
   %strong Answers:
-  - @question.answers.each do |answer|
-    = answer  
-  
+  %ul
+    - @question.answers.each do |answer|
+      %li
+        %strong
+          = answer.choice
+        = "- #{answer}"
+
+%p
+  Submit your reply by texting 
+  %strong (415) 599-2671.
+  With the Question ID
+  = "(#{@question.id})"
+  and your answer.
+%p
+  %i
+    e.g. 
+    = "##{@question.id} C"
 
 %p
   = link_to "New answer", new_question_answer_path(@question)

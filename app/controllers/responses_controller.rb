@@ -14,8 +14,11 @@ class ResponsesController < ApplicationController
 
   def create
     return unless params["Body"]
-    @question = Question.first  # TODO allow multiple questions
-    @answer = @question.answers.find_by_choice params["Body"][0]
+    
+    # Body arrives in the format: "#345 C"
+    question_id, choice = params["Body"].split(" ")
+    @question = Question.find question_id.remove("#")
+    @answer = @question.answers.find_by_choice choice
 
     @myresponse = Response.new(question_id: @question.to_param, answer_id: @answer.to_param)
     if @myresponse.save
