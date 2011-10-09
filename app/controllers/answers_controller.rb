@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(params[:answer])
     if @answer.save
       flash[:notice] = "Successfully created answer."
-      redirect_to [@question, @answer]
+      redirect_to @question
     else
       render :action => 'new'
     end
