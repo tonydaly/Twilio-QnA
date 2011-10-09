@@ -10,7 +10,13 @@
         %ul
           - question.answers.each do |answer|
             %li
-            = "#{answer.choice}: #{answer}"
+              %strong
+                = "#{answer.choice}: "
+              = answer
+
+              %strong
+                = "Responses: "
+              = answer.responses.count
           
       %td= link_to 'Show', question
       %td= link_to 'Edit', edit_question_path(question)
