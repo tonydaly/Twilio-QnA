@@ -20,7 +20,7 @@ class ResponsesController < ApplicationController
     @answer = @question.answers.find_by_choice params["Body"][0]
     puts "Answer: #{@answer.id}-#{@answer.choice}"
 
-    @myresponse = Response.new(question_id: @question, answer_id: @answer)
+    @myresponse = Response.new(question_id: @question.to_param, answer_id: @answer.to_param)
     if @myresponse.save
       flash[:notice] = "Successfully created response."
       redirect_to @myresponse
