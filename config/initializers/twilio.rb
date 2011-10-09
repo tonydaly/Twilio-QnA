@@ -1,5 +1,5 @@
 twilio_config = YAML.load_file("#{Rails.root}/config/twilio.yml")[Rails.env]
 
 Twilio::Config.setup \
-  :account_sid  => twilio_config[:account_sid],
-  :auth_token   => twilio_config[:auth_token]
+  :account_sid  => ENV["TWILIO_ACCOUNT_SID"],
+  :auth_token   => ENV["TWILIO_AUTH_TOKEN"]
